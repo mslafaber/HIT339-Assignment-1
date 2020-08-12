@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Assignment_1_Web_Application_MVC.Models
 {
-    public class items
+    public class Sales
     {
         public int Id { get; set; }
-        public string ItemName { get; set; }
-
-
+ 
     }
 }
