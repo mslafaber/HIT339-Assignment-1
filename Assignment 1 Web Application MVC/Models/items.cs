@@ -15,6 +15,5 @@ namespace Assignment_1_Web_Application_MVC.Models
         [Required]
         public string ItemName { get; set; }
 
-
     }
 }
