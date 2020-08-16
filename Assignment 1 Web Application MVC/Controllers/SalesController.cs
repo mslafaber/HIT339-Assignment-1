@@ -34,7 +34,7 @@ namespace Assignment_1_Web_Application_MVC.Controllers
             }
 
             var sales = await _context.Sales
-                .FirstOrDefaultAsync(m => m.SalesId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sales == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace Assignment_1_Web_Application_MVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SalesId,Salesname")] Sales sales)
+        public async Task<IActionResult> Create([Bind("Id,Salesname,Buyer,Quantity")] Sales sales)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace Assignment_1_Web_Application_MVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SalesId,Salesname")] Sales sales)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Salesname,Buyer,Quantity")] Sales sales)
         {
-            if (id != sales.SalesId)
+            if (id != sales.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Assignment_1_Web_Application_MVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SalesExists(sales.SalesId))
+                    if (!SalesExists(sales.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Assignment_1_Web_Application_MVC.Controllers
             }
 
             var sales = await _context.Sales
-                .FirstOrDefaultAsync(m => m.SalesId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sales == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Assignment_1_Web_Application_MVC.Controllers
 
         private bool SalesExists(int id)
         {
-            return _context.Sales.Any(e => e.SalesId == id);
+            return _context.Sales.Any(e => e.Id == id);
         }
     }
 }

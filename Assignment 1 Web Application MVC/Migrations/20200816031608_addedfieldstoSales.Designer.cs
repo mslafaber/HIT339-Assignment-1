@@ -3,14 +3,16 @@ using Assignment_1_Web_Application_MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Assignment_1_Web_Application_MVC.Migrations
 {
     [DbContext(typeof(ItemsDbContext))]
-    partial class ItemsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200816031608_addedfieldstoSales")]
+    partial class addedfieldstoSales
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,11 +55,12 @@ namespace Assignment_1_Web_Application_MVC.Migrations
                     b.Property<string>("BuyerName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Item")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("Salesname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

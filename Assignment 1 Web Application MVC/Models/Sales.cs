@@ -11,9 +11,11 @@ namespace Assignment_1_Web_Application_MVC.Models
     {
         [Key]
         [Required]
-        public int SalesId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string Salesname { get; set; }
+        public int Item { get; set; }
+        public string BuyerName { get; set; }
+        public int Quantity { get; set; }
     }
 }
